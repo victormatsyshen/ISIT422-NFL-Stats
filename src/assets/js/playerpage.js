@@ -130,7 +130,7 @@ const generateHtml_PlayerStats = (data) =>
         testDIV.innerHTML = html
     }
 
-    if(data.Position == "DT")
+    if(data.Position == "RB")
     {
         const html =`
         <h3>Defensive Stats</h3>
