@@ -38,6 +38,7 @@ fetch(apiUrl_PlayerData)
     return data.json()
 })
 .then((nflStats) => generateHtml_PlayerData(nflStats))
+console.log("Player Data: "+apiUrl_PlayerData);
 
 //
 
@@ -60,6 +61,50 @@ const generateHtml_PlayerData = (data) =>
      <div>Current Team: ${data.CurrentTeam} </div>
      `
      const testDIV = document.querySelector('.infoOutput')
+     testDIV.innerHTML = html
+
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// API Url Setup (player news)
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Url Setup - runs automatically
+let apiData_PlayerNews =
+{   
+    url_PlayerNews: 'https://api.sportsdata.io/v3/nfl/',
+    field_PlayerNews: 'scores/json/NewsByPlayerID/',
+    input_PlayerNews: playerID,
+    key_PlayerNews: keyID
+}
+
+// Url JSON string
+let {url_PlayerNews,field_PlayerNews,input_PlayerNews,key_PlayerNews} = apiData_PlayerNews
+let apiUrl_PlayerNews = `${url_PlayerNews}${field_PlayerNews}${input_PlayerNews}?${key_PlayerNews}`
+
+//Url Fetch
+fetch(apiUrl_PlayerNews) 
+.then( (data) => 
+{
+    return data.json()
+})
+.then((nflStats) => generateHtml_PlayerNews(nflStats))
+console.log("Player News: "+apiUrl_PlayerNews);
+
+// Html display for loop retrieves information from (data) which is the API fetch output.
+const generateHtml_PlayerNews = (data) => 
+{
+    // // Original Html output is empty
+    // // We will compound buttons and html as the for loop progresses. 
+     let output = data;
+
+     const html =`
+     <div>Updated: ${data[0].Updated} </div></br>
+     <div>${data[0].Title} </div></br>
+     <div>${data[0].Content} </div></br>
+     <div>Source: ${data[0].Source} ${data[0].Url} </div>
+     `
+     const testDIV = document.querySelector('.playerNewsOutput')
      testDIV.innerHTML = html
 
 }
@@ -99,8 +144,6 @@ const generateHtml_PlayerStats = (data) =>
     if(data.Position == "QB")
     {
         const html =`
-        <h3>QB Stats</h3>
-
         <div>Passing Attempts: ${data.PassingAttempts} </div>
         <div>Passing Yards: ${data.PassingYards} </div>
         <div>Completion Percentage: ${data.PassingCompletionPercentage} </div>
@@ -118,8 +161,6 @@ const generateHtml_PlayerStats = (data) =>
     if(data.Position == "WR")
     {
         const html =`
-        <h3>WR Stats</h3>
-
         <div>Targets: ${data.ReceivingTargets} </div>
         <div>Receptions: ${data.Receptions} </div>
         <div>Receiving Yards: ${data.ReceivingYards} </div>
@@ -133,8 +174,6 @@ const generateHtml_PlayerStats = (data) =>
     if(data.Position == "RB")
     {
         const html =`
-        <h3>Defensive Stats</h3>
-
         <div>Tackles: ${data.Tackles} </div>
         <div>Solo Tackles: ${data.SoloTackles} </div>
         <div>Assisted Tackles: ${data.AssistedTackles} </div>
@@ -151,8 +190,6 @@ const generateHtml_PlayerStats = (data) =>
     if(data.Position == "K")
     {
         const html =`
-        <h3>Kicker Stats</h3>
-
         <div>Field Goals Attempted: ${data.FieldGoalsAttempted} </div>
         <div>Field Goals Made: ${data.FieldGoalsMade} </div>
         <div>Extra Points Made: ${data.ExtraPointsMade} </div>

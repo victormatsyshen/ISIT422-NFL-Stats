@@ -47,7 +47,7 @@ const generateHtml = (data) =>
         let next_item = data[i];
         let html = 
         `
-            <button type="button" id="${next_item.Key}" onClick="testFunction(this.id)">${next_item.FullName}</button>
+            <button type="button" id="${next_item.Key}" onClick="testFunction(this.id)">${next_item.FullName}</br><img src=${next_item.WikipediaLogoUrl} class="homeLogo"></button>
         `;
         html += `
             <br />

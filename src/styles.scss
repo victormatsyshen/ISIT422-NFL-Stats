@@ -44,7 +44,7 @@
     margin-top: 1rem;
   }
   button:hover {
-    background-color: black;
+    background-color: rgba(46, 45, 45, 0.644);
     color: white;
   }
   button:disabled {
@@ -80,6 +80,11 @@
     box-sizing: border-box;
     width: 100%;
     padding: .5rem;
+  }
+
+  .homeLogo{
+    opacity: 100%;
+    max-width: 120px;
   }
   
   

@@ -108,7 +108,7 @@ const generateHtml_TeamPlayers = (data) =>
         let next_item = data[i];
         let html = 
         `
-            <button type="button" id="${next_item.PlayerID}" onClick="testFunction2(this.id)">${next_item.Name}</br><img src=${next_item.PhotoUrl}></button>
+            <button type="button" id="${next_item.PlayerID}" onClick="testFunction2(this.id)"> #${next_item.Number} <img src=${next_item.PhotoUrl}> ${next_item.Name} ${next_item.Position} ${next_item.Age} ${next_item.Height} ${next_item.Weight}</button>
         `;
         html += `
             <br />
@@ -117,6 +117,50 @@ const generateHtml_TeamPlayers = (data) =>
         const testDIV = document.querySelector('.playerOutput')
         testDIV.innerHTML = output
     }
+}
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// API Url Setup (team news)
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Url Setup - runs automatically
+let apiData_TeamNews =
+{   
+    url_TeamNews: 'https://api.sportsdata.io/v3/nfl/',
+    field_TeamNews: 'scores/json/NewsByTeam/',
+    input_TeamNews: teamKey,
+    key_TeamNews: keyID
+}
+
+// Url JSON string
+let {url_TeamNews,field_TeamNews,input_TeamNews,key_TeamNews} = apiData_TeamNews
+let apiUrl_TeamNews = `${url_TeamNews}${field_TeamNews}${input_TeamNews}?${key_TeamNews}`
+
+//Url Fetch
+fetch(apiUrl_TeamNews) 
+.then( (data) => 
+{
+    return data.json()
+})
+.then((nflStats) => generateHtml_TeamNews(nflStats))
+console.log("Player News: "+apiUrl_TeamNews);
+
+// Html display for loop retrieves information from (data) which is the API fetch output.
+const generateHtml_TeamNews = (data) => 
+{
+    // // Original Html output is empty
+    // // We will compound buttons and html as the for loop progresses. 
+     let output = data;
+
+     const html =`
+     <div>Updated: ${data[0].Updated} </div></br>
+     <div>${data[0].Title} </div></br>
+     <div>${data[0].Content} </div></br>
+     <div>Source: ${data[0].Source} ${data[0].Url} </div>
+     `
+     const testDIV = document.querySelector('.teamNewsOutput')
+     testDIV.innerHTML = html
+
 }
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
