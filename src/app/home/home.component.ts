@@ -9,12 +9,15 @@ import { AppService } from '../app.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  
+
+  
 
   
   
-  MakeTeam(team): Team {
-    console.log(team);
-    this.teamService.CreateTeam()
+  MakeTeam(clickedTeam: Team): void {
+    console.log(clickedTeam);
+    this.teamService.CreateTeam(clickedTeam)
     .subscribe(data => {
       console.log(data)
       window.location.href = '/teams';
@@ -23,9 +26,9 @@ export class HomeComponent implements OnInit {
     
   }
 
-  saveTeam (): void {
-    this,this.teamService.updateTeam(this.team.id, this.team)
-    .subscribe(team => this.team = team);
+  saveTeam (clickedTeam:Team): void {
+    this,this.teamService.updateTeam(clickedTeam.id, clickedTeam)
+    .subscribe(team => clickedTeam = team);
   }
 
   constructor(private teamService: AppService) {}
