@@ -26,6 +26,7 @@ function testFunction(clicked_key)
 function testMongo(clicked_key)
 {
    console.log("Mongo Data: " + clicked_key);
+   
 
 }  
 

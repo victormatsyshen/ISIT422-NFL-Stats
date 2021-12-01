@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
     
   }
 
-  saveTeam (clickedTeam:Team): void {
+  saveTeam (clickedTeam : Team): void {
     this,this.teamService.updateTeam(clickedTeam.id, clickedTeam)
     .subscribe(team => clickedTeam = team);
   }

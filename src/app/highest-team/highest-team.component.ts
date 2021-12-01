@@ -15,10 +15,15 @@ export class HighestTeamComponent implements OnInit {
   
   getTeams(): void {
     this.appService.getTeams()
-    .subscribe(teams => this.teams = teams);
+    .subscribe(teams => {
+      console.log(teams)
+      this.teams = teams
+    }
+    );
   }
 
   ngOnInit(): void {
+    this.getTeams();
   }
 
 }
