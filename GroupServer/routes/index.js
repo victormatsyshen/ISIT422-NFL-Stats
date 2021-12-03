@@ -17,6 +17,7 @@ const dbURI =
 // by default, you need to set it to false.
 
 
+
 const options = {
   
   
@@ -41,7 +42,7 @@ function Team(pId, pName, pCount){
   this.click = pCount;
 }
 
-teamArray.push( new Team (99, 'The Jebs', 11) );
+
 
 
 
@@ -86,13 +87,15 @@ router.put('/teams/:id', function(req, res) {
   var changedTeam = req.body; 
   var changedTeamid = req.params.id;
 
-  HeroSchema.findOneAndUpdate(
+  TeamSchema.findOneAndUpdate(
     { id: changedTeamid },  // mongo lets you search by any field, not just its _id
     changedTeam,
     { new: false },  // true or false to let it add if not present?
     (err, updatedTeam) => {
       if (err) {
+        console.log(changedTeam);
         res.status(500).send(err);
+        
       }
       res.status(200).json(updatedTeam);
     }
@@ -102,7 +105,7 @@ router.put('/teams/:id', function(req, res) {
 
  // delete is used to delete existing object using the user's app id field
 router.delete('/teams/:id', function (req, res) {
-  TeamSchema.deleteOne({ id: req.params.id }, (err, hero) => { 
+  TeamSchema.deleteOne({ id: req.params.id }, (err, teams) => { 
     if (err) {
       res.status(404).send(err);
     }
