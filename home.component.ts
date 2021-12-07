@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Team } from '../teams';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { AppService } from '../app.service';
 
 @Component({
@@ -34,6 +37,11 @@ export class HomeComponent implements OnInit {
 
     
   }
+  getTeam():void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.teamService.getTeam(id)
+      .subscribe(team => this.moddedTeam = team)
+  }
 
   saveTeam (moddedTeam : Team): void {
     this.teamService.updateTeam(moddedTeam.id, moddedTeam)
@@ -41,11 +49,14 @@ export class HomeComponent implements OnInit {
   }
   
 
-  constructor(private teamService: AppService) {}
+  constructor(
+    private teamService: AppService,
+    private route: ActivatedRoute
+    ) {}
 
   ngOnInit(): void {
     //this.MakeTeam(this.clickedTeam);
-    this.saveTeam(this.moddedTeam);
+    //this.saveTeam(this.moddedTeam);
   }
 
 }
