@@ -1,0 +1,42 @@
+<body class="mongoPage">
+
+    <!-- Global Title -->
+    <div class="titleDiv">
+        NFL Fantasy Data
+    </div>
+
+    <!-- Global Nav Bar -->
+    <div class="navBarDiv">
+        <button class="navBarButton" onclick="window.location.href='/home'">Home</button>
+        <button class="navBarButton" onclick="window.location.href='/schedule'">Schedule</button>
+        <button class="navBarButton" onclick="window.location.href='/highest'">Mongo</button>
+        <button class="navBarButton" onclick="window.location.href='/stream'">Stream</button>
+    </div>
+
+    <div class="centerDiv">
+
+        <div class="contentDiv">
+
+            <h2>Most Clicked Teams</h2>
+
+            <ul class="teams">
+                <li *ngFor="let team of teams">
+                    
+                    <span class="badge">{{team.name}}</span> Clicks: {{team.count}}
+                
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- Global Footer -->
+    <div class="footerDiv">
+        Created by Victor Matsyshen and Dylan York<br> 
+        &copy; All Rights Reserved 2021
+    </div>
+
+</body>
+
+

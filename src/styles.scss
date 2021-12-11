@@ -1,0 +1,638 @@
+//------------------------------------------------------------------------------------------------------------------------------
+// Global Style
+//------------------------------------------------------------------------------------------------------------------------------
+html{
+  min-height: 100vh;
+}
+
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; 
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(237,238,240);
+  min-height: 100vh;
+  overflow: overlay;
+  //font-family: "Times New Roman", Times, serif;
+}
+
+.titleDiv{
+  //background-image: linear-gradient(rgb(81, 85, 81), rgb(33, 36, 33));
+  background-color: rgb(33, 36, 33);
+  color: rgb(255, 255, 255);
+  
+  text-align: center;
+  font-size: 50px;
+  font-weight: bolder;
+  font-style: italic ;
+
+  padding: 10px;
+  border: 2px solid rgb(0, 0, 0);
+  border-bottom: none;
+  border-top: none;
+}
+
+.navBarDiv{
+  background-color: rgb(33, 36, 33);
+  
+  text-align: center;
+  padding-top: 15px;
+  border: 2px solid rgb(0, 0, 0);
+  border-top: none;
+  
+}
+
+.navBarButton{
+  color: rgb(255, 255, 255);
+  background: none;
+
+  text-align: center;
+  font-weight: bold;
+  font-style: italic ;
+  font-size: 20px;
+  cursor: pointer;
+
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  margin-left: 10px;
+  margin-right: 10px;
+
+  border: 5px solid rgb(255, 255, 255);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-color: transparent;
+}
+.navBarButton:hover {
+  background-color: transparent;
+  border: 5px solid rgb(255, 255, 255);
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.centerDiv{
+  margin:auto;
+  //max-width: 70%;
+  max-width: 1650px;
+  min-height: 725px;
+  background-color: rgb(255, 255, 255);
+}
+
+.contentDiv{
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+}
+
+.footerDiv{
+  background-color: rgb(43, 48, 43);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+
+  border: 2px solid rgb(0, 0, 0);
+  border-bottom: none;
+}
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------
+// Home Page
+//------------------------------------------------------------------------------------------------------------------------------
+.homePage {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden; /* Hide scrollbars */
+  //height: 100%;
+  //background-color: rgb(214, 226, 248);
+}
+
+.teamParent{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.homeTeamLogo{
+  width: 80px;
+  height: 80px;
+  //background-color: #42b7e9;
+}
+
+.homeTeamButton{
+  font-size: 0px; // hides the team name
+  
+  border: solid 2px transparent;
+  border-radius: 5px;
+  background: none;
+  //background:rgb(237, 245, 240);
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+.homeTeamButton:hover{
+  background:rgb(217, 223, 219);
+  //border: solid 2px black;
+  border-style: outset;
+  border-radius: 5px;
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+  
+}
+
+.teamDivision{
+  //border: solid;
+  //margin-left: 10px;
+  //margin-right: 10px;
+  font-weight: bold;
+  font-size: 25px;
+  font-style: italic ;
+  margin-top: 50px;
+  margin-left: 30px;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.teamBlurb{
+  text-align: center;
+  max-width: 1500px;
+  border: solid 2px transparent;
+  background-color: rgb(243, 243, 243);
+  color: black;
+  padding: 20px;
+  margin: auto;
+  margin-top: 20px;
+  border-radius: 8px;
+  //box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+
+}
+
+.afcNorth{
+  width: 200px;
+  min-height: 200px;
+  text-align: center;
+}
+.afcEast{
+  width: 200px;
+  min-height: 200px;
+
+  text-align: center;
+}
+.afcSouth{
+  width: 200px;
+  min-height: 200px;
+
+  text-align: center;
+}
+.afcWest{
+  width: 200px;
+  min-height: 200px;
+
+  text-align: center;
+}
+.nfcNorth{
+  width: 200px;
+  min-height: 200px;
+
+  text-align: center;
+}
+.nfcEast{
+  width: 200px;
+  min-height: 200px;
+
+  text-align: center;
+}
+.nfcSouth{
+  width: 200px;
+  min-height: 200px;
+
+  text-align: center;
+}
+.nfcWest{
+  width: 200px;
+  min-height: 200px;
+
+  text-align: center;
+}
+
+//------------------------------------------------------------------------------------------------------------------------------
+// Team Page
+//------------------------------------------------------------------------------------------------------------------------------
+.teamPage {
+  margin: 0px;
+  padding: 0px;
+}
+
+.teamImage{
+  border: solid 6px var(--pc);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: transparent;
+  color: black;
+  padding: 20px;
+  margin-bottom: 15px;
+  //background-color: var(--sc);
+  
+
+  display: flex;
+  justify-content: center;
+}
+
+.teamImage2{
+  border: solid 2px transparent;
+  background-color: rgb(243, 243, 243);
+  color: black;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 8px;
+  //background-color: var(--sc);
+  
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  justify-content: space-evenly;
+  //align-items: center;
+  
+}
+
+.teamColor1{
+  background-color: var(--pc);
+  border-radius: 5px;
+  margin: 3px;
+  margin-top: 15px;
+}
+.teamColor2{
+  background-color: var(--sc);
+  border-radius: 5px;
+  margin: 3px;
+}
+.teamColor3{
+  background-color: var(--tc);
+  border-radius: 5px;
+  margin: 3px;
+}
+
+.homeTeamIcon{
+  height: 100px;
+  width: 100px;
+}
+
+.homeTeamWordArt{
+  height: 100px;
+}
+
+.teamInfo{
+  border: solid 2px transparent;
+  background-color: rgb(243, 243, 243);
+  color: black;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 8px;
+  width: 700px;
+
+  //background-color: var(--pc);
+}
+
+.teamPoints{
+  border: solid 2px transparent;
+  background-color: rgb(243, 243, 243);
+  color: black;
+  padding: 20px;
+  margin: 5px;
+  border-radius: 8px;
+  width: 700px;
+
+  //background-color: var(--sc);
+}
+
+.playerWrap{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  margin-top: 30px;
+  padding-bottom: 30px;
+
+  border: solid 6px var(--pc);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  //background-color: var(--pc);
+}
+
+// .PlayerData{
+//   text-align: center;
+// }
+
+
+
+.newPlayerOutput{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+.playerOutput{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+.playerLabel{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  height: 60px;
+}
+
+.playerLabelButton{
+  border: solid 3px var(--pc);
+  width: 1300px;
+  background-color: rgb(243,243,243);
+  display: flex;
+  // justify-content: space-evenly;
+  align-items: center;
+  font-weight: 650;
+  font-style: italic;
+  border-radius: 5px;
+}
+
+.playerButton{
+  //border: none;
+  border: solid 2px var(--pc);
+  width: 1300px;
+  background-color: rgb(243,243,243);
+  display: flex;
+  // justify-content: space-evenly;
+  align-items: center;
+  font-weight: 500;
+  margin-top: 9px;
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.2);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.injuryButton{
+  border: solid 2px var(--pc);
+  border-top: none;
+  width: 1300px;
+  height: 70px;
+  background-color: rgb(248, 239, 239);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+}
+
+.playerButton:hover{
+  background-color: rgb(219, 223, 223);
+  //background: linear-gradient(to bottom right, rgb(241, 238, 238), var(--pc));
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+}
+.injuryButton:hover{
+  background-color: rgb(219, 223, 223);
+  //background: linear-gradient(to bottom right, rgb(241, 238, 238), var(--pc));
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+}
+
+.playerImage{
+  
+  //border: solid 1px black;
+  width: 70px;
+}
+
+.pNumber{
+  //border: solid 1px black;
+  margin-left: 40px;
+  height: 30px;
+  width: 35px;
+  font-size: 18px;
+}
+.pName{
+  //border: solid 1px black;
+  margin-left: 40px;
+  height: 30px;
+  width: 160px;
+  font-size: 18px;
+}
+.pPosition{
+  //border: solid 1px black;
+  margin-left: 20px;
+  height: 30px;
+  width: 80px;
+  font-size: 18px;
+}
+.pExp{
+  //border: solid 1px black;
+  margin-left: 20px;
+  height: 30px;
+  width: 150px;
+  font-size: 18px;
+}
+.pAge{
+  //border: solid 1px black;
+  margin-left: 200px;
+  font-size: 18px;
+  height: 30px;
+  width: 40px;
+}
+.pHeight{
+  //border: solid 1px black;
+  margin-left: 20px;
+  font-size: 18px;
+  height: 30px;
+  width: 70px;
+}
+.pWeight{
+  //border: solid 1px black;
+  margin-left: 20px;
+  font-size: 18px;
+  height: 30px;
+  width: 70px;
+}
+.pStatus{
+  //border: solid 1px black;
+  margin-left: 20px;
+  font-size: 18px;
+  height: 30px;
+  width: 200px;
+}
+.InjuryStat{
+  //margin-left: 220px;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(201, 18, 18);
+  
+}
+.IL{
+  margin-left: 50px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.IS{
+  margin-left: 50px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+
+.playerNews{
+  //height: 100px;
+  border: solid 2px transparent;
+  background-color: rgb(243, 243, 243);
+  color: black;
+  padding: 20px;
+  margin: 5px;
+  margin-top: 35px;
+  border-radius: 8px;
+}
+
+.playerInjury{
+  border: none;
+  border-bottom: solid 2px black;
+  background: none;
+
+}
+
+.sectionHeader{
+  text-align: center;
+  font-weight: bold;
+  font-style: italic ;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.teamSplit{
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+
+.teamDataTitles{
+  font-weight: bold;
+  //margin-right: 80px;
+  //margin-left: 40px;
+}
+
+.teamData{
+  display: flex;
+  border: solid 6px var(--pc);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  max-height: 380px;
+
+  padding: 10px;
+  padding-bottom: 20px;
+  //margin: 10px;
+  
+}
+
+
+//------------------------------------------------------------------------------------------------------------------------------
+// Player Page
+//------------------------------------------------------------------------------------------------------------------------------
+.playerPage {
+  margin: 0px;
+  padding: 0px;
+}
+
+.colorTest{
+  background-color: var(--pc);
+}
+
+.playerInfoWrap{
+  border: solid 6px var(--pc);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 20px;
+}
+
+.playerNewsWrap{
+  border: solid 6px var(--pc);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin-bottom: 20px;
+}
+
+.playerStatsWrap{
+  border: solid 6px var(--pc);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.playerInfoContent{
+  background-color: rgb(243, 243, 243);
+  border-radius: 8px;
+}
+
+.playerNewsContent{
+  background-color: rgb(243, 243, 243);
+  border-radius: 8px;
+}
+
+.playerStatsContent{
+  background-color: rgb(243, 243, 243);
+  border-radius: 8px;
+}
+
+.playerInfoArea{
+  display: inline-flex;
+}
+
+.p1{
+  background-color: aqua;
+  float: left;
+}
+.p2{
+  background-color: rgb(80, 134, 134);
+}
+.p3{
+  background-color: rgb(46, 201, 201);
+}
+
+//------------------------------------------------------------------------------------------------------------------------------
+// Schedule Page
+//------------------------------------------------------------------------------------------------------------------------------
+
+.videoDiv{
+  //border: solid 2px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scheduleSearch{
+  border: solid 2px black;
+}
+
+.scheduleContent{
+  border: solid 2px black;
+  background-color: var(--pc);
+}
+
+.scheduleOutput{
+  border: solid 2px black;
+}
+
+.testyy{
+  border: solid 2px black;
+}
+
+
+  
+  
