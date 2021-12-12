@@ -67,25 +67,40 @@ const generateHtml_PlayerData = (data) =>
      let output = data;
 
      const html =`
-     <div class="p1">
-     <img src=${data.PhotoUrl}>
-     <div class="name">${data.Name}</div>
-     </div>
-     <div class="p2">
-     <div>Position: ${data.Position} </div>
-     <div>Height: ${data.Height} </div>
-     <div>Weight: ${data.Weight} </div>
-     <div>Age: ${data.Age} </div>
-     <div>Birth Day: ${data.BirthDateString} </div>
-     </div>
-     <div class="p3">
-     <div>Team Status: ${data.Status} </div>
-     <div>Experience: ${data.ExperienceString} </div>
-     <div>Current Team: ${data.CurrentTeam} </div>
-     <div>College: ${data.College} </div>
-     <div>College Draft Team: ${data.CollegeDraftTeam} </div>
-     <div>College Draft Year: ${data.CollegeDraftYear} </div>
-     </div>
+        <div class="wrapTest">
+            <div class="p1">
+                <img src=${data.PhotoUrl}>
+                <div class="name">${data.Name}</div>
+            </div>
+            <div class="scheduleInfoHeadings">
+                <div>Position:</div>
+                <div>Height:</div>
+                <div>Weight</div>
+                <div>Age</div>
+                 <div>Birth Day</div>
+            </div>
+            <div class="p2">
+                <div>${data.Position} </div>
+                <div>${data.Height} </div>
+                <div>${data.Weight} </div>
+                <div>${data.Age} </div>
+                <div>${data.BirthDateString} </div>
+            </div>
+            <div class="scheduleInfoHeadings">
+                <div>Team Status</div>
+                <div>Experience</div>
+                <div>Current Team</div>
+                <div>College</div>
+                <div>College Draft Year</div>
+            </div>
+            <div class="p3">
+                <div> ${data.Status} </div>
+                <div> ${data.ExperienceString} </div>
+                <div> ${data.CurrentTeam} </div>
+                <div> ${data.College} </div>
+                <div> ${data.CollegeDraftYear} </div>
+            </div>
+        </div>
      `
      const testDIV = document.querySelector('.infoOutput')
      testDIV.innerHTML = html
@@ -131,10 +146,10 @@ const generateHtml_PlayerNews = (data) =>
      let output = data;
 
      const html =`
-     <div>Updated: ${data[0].Updated} </div></br>
-     <div>${data[0].Title} </div></br>
+     <div><b>${data[0].Title}</b></div></br>
      <div>${data[0].Content} </div></br>
-     <div>Source: ${data[0].Source} ${data[0].Url} </div>
+     <div>Updated: ${data[0].Updated} </div>
+     <div>Source: ${data[0].Source} - <a href="${data[0].Url}">${data[0].Url}</a></div>
      `
      const testDIV = document.querySelector('.playerNewsOutput')
      testDIV.innerHTML = html

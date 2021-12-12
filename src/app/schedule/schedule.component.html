@@ -16,17 +16,24 @@
 
     <div class="centerDiv">
 
-        <div class="scheduleSearch">
-            <div>Search Tool Week - Year</div>
-            <input type="search" id="scheduleSearchWeek" value="10">
-            <input type="search" id="scheduleSearchYear" value="2021">
-            <button id="scheduleSearchButton" onclick="ApiSceduleData(document.getElementById('scheduleSearchYear').value,document.getElementById('scheduleSearchWeek').value,'scheduleOutput');">Search</button>
-        </div>
+        <div class="contentDiv">
 
-        <div class="scheduleContent">
+            <div class="scheduleSearch">
+                <div>Search For NFL Schedule by Week and Year</div>
+                <input type="search" id="scheduleSearchWeek" value="1">
+                <input type="search" id="scheduleSearchYear" value="2021">
+                <button id="scheduleSearchButton" onclick="ApiSceduleData(document.getElementById('scheduleSearchYear').value,document.getElementById('scheduleSearchWeek').value,'scheduleOutput');">Search</button>
+            </div>
 
             <!-- JavaScript Output -->
-            <div class="scheduleOutput"></div>
+            <div class="teamLookOutput3"></div>
+    
+            <div class="scheduleContent">
+    
+                <!-- JavaScript Output -->
+                <!-- <div class="scheduleOutput"></div> -->
+    
+            </div>
 
         </div>
 
