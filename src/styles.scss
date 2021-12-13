@@ -568,11 +568,59 @@ body {
   margin-bottom: 20px;
 }
 
-.playerStatsWrap{
-  border: solid 6px var(--pc);
+// .playerStatsWrap{
+//   padding: 10px;
+// }
+
+.playerStatsHeaderContainer
+{
+  //margin-top: 20px;
+  padding-bottom: 10px;
+  font-weight: bold;
+  //font-style: italic ;
+  font-size: 20px;
+  border: solid 3px var(--pc);
   border-top: none;
   border-left: none;
   border-right: none;
+}
+
+.playerStatsHeaderContainer2
+{
+  font-weight: bold;
+  font-style: italic ;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.playerStatsHeader{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.okok{
+  display: flex;
+  justify-content: space-evenly;
+  border: solid 2px var(--pc);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 50px;
+  align-items: center;
+}
+
+.okok:hover{
+  display: flex;
+  justify-content: space-evenly;
+  border: solid 2px var(--pc);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  height: 50px;
+  align-items: center;
+  background-color: var(--pc);
+  color: var(--sc);
+  font-weight: 700;
 }
 
 .playerInfoContent{
@@ -618,6 +666,57 @@ body {
 }
 .p3{
   width: 300px;
+}
+
+//------------------------------------------------------------------------------------------------------------------------------
+// Player Stats Dump
+//------------------------------------------------------------------------------------------------------------------------------
+.hw-qb1{
+  //border: solid 1px black;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 350px;
+}
+.hw-qb2{
+  //border: solid 1px black;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 500px;
+}
+.hw-qb3{
+  //border: solid 1px black;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 200px;
+}
+
+.hc-qb1{
+  //border: solid 1px black;
+  width: 120px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.sc-qb1{
+  //border: solid 1px black;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 //------------------------------------------------------------------------------------------------------------------------------
@@ -733,5 +832,15 @@ body {
   font-size: 20px;
   text-align: center;
 }
+
+.mongoTitle{
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+}
   
+.aaaa{
+  display: flex;
+}
   

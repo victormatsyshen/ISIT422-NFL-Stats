@@ -17,12 +17,12 @@
 
         <div class="contentDiv">
 
-            <h2>Most Clicked Teams</h2>
-
+            <div class="mongoTitle">Most Clicked Teams</div>
+            
             <ul class="teams">
                 <li *ngFor="let team of teams">
                     
-                    <span class="badge">{{team.name}}</span> - Clicks: {{team.count}}
+                    <div class="aaaa"><span class="badge"><b><i>{{team.name}}</i></b></span>&nbsp;- Clicks:&nbsp;<div class="test1">{{team.count}}</div></div>
                 
                 </li>
             </ul>
@@ -36,6 +36,9 @@
         Created by Victor Matsyshen and Dylan York<br> 
         &copy; All Rights Reserved 2021
     </div>
+
+    <!-- JS Output -->
+    <script src="highestTeam.js"></script>
 
 </body>
 

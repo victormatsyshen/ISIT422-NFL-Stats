@@ -172,7 +172,7 @@ let apiData_PlayerSeasonStats =
     url_PlayerSeasonStats: 'https://api.sportsdata.io/v3/nfl/',
     field_PlayerSeasonStats: 'stats/json/PlayerGameStatsBySeason/',
     year_PlayerSeasonStats: statsYear,
-    input_PlayerSeasonStats: '/' + playerID + '/3',
+    input_PlayerSeasonStats: '/' + playerID + '/All',
     key_PlayerSeasonStats: keyID
 }
 
@@ -194,170 +194,404 @@ const generateHtml_PlayerSeasonStats = (data) =>
 {
     // Original Html output is empty. We will compound buttons and html as the for loop progresses. 
     let output = "";
+    let output0 = "";
 
     // Collect the total amount of data elements and repeat for each result
-    for(let i=0;i<data.length;i++)
-    {
-        let next_item = data[i];
+    let next_item = data[0];
         
-        if (next_item.Position == "QB") {
+    if (next_item.Position == "QB") 
+    {
+        let html0 = 
+        `
+        <div class="playerStatsWrap">
 
-            let html = 
+            <div class="playerStatsHeaderContainer2">
+                
+            <div class="playerStatsHeader"><div class="hw-qb1">Passing</div><div class="hw-qb2">Rushing</div><div class="hw-qb3">Fantasy</div></div>
+
+            </div>
+        
+            <div class="playerStatsHeaderContainer">
+            
+                <div class="playerStatsHeader"><div class="hc-qb1">Week</div><div class="hc-qb1">ATT</div><div class="hc-qb1">CMP</div><div class="hc-qb1">PCT</div><div class="hc-qb1">YDS</div><div class="hc-qb1">AVG</div><div class="hc-qb1">TD</div><div class="hc-qb1">INT</div><div class="hc-qb1">Passer Rating</div><div class="hc-qb1">ATT</div><div class="hc-qb1">RY</div><div class="hc-qb1">YPA</div><div class="hc-qb1">TD</div><div class="hc-qb1">Fumbles</div><div class="hc-qb1">Draft Kings</div><div class="hc-qb1">Fan Duel</div></div>
+
+            </div>
+
+        </div>
+        `;
+        output0 += html0
+        const testDIV0 = document.querySelector('.seasonStatsHeader')
+        testDIV0.innerHTML = output0
+        
+        for(let j=0;j<data.length;j++){
+
+            let next_item = data[j];
+
+            let html =
             `
-            <div>Season: ${next_item.Season} </div>
-            <div>Week: ${next_item.Week} </div></br>
-
-            <div>Passing Attempts: ${next_item.PassingAttempts} </div>
-            <div>Passing Completions: ${next_item.PassingCompletions} </div>
-            <div>Completion Percentage: ${next_item.PassingCompletionPercentage} </div>
-            <div>Passing Yards: ${next_item.PassingYards} </div>
-            <div>Passing Yards Per Attempt: ${next_item.PassingYardsPerAttempt} </div>
-            <div>Passing Yards Per Completion: ${next_item.PassingYardsPerCompletion} </div>
-            <div>Passing Touchdowns: ${next_item.PassingTouchdowns} </div>
-            <div>Interceptions: ${next_item.PassingInterceptions} </div>
-            <div>Passing Rating: ${next_item.PassingRating} </div>
-            <div>Rushing Attempts: ${next_item.RushingAttempts} </div>
-            <div>Rushing Yards: ${next_item.RushingYards} </div>
-            <div>Rushing Yards Per Attempt: ${next_item.RushingYardsPerAttempt} </div>
-            <div>Rushing Touchdowns: ${next_item.RushingTouchdowns} </div>
-            <div>Fumbles: ${next_item.Fumbles} </div></br>
-
-            <div>Fantasy Points PPR: ${data[0].FantasyPointsPPR} </div>
-            <div>Fantasy Points Draft Kings: ${next_item.FantasyPointsDraftKings} </div>
-            <div>Fantasy Points Fan Duel: ${next_item.FantasyPointsFanDuel} </div></br></br>
+            <div class = okok>
+            <div class="sc-qb1">${next_item.Week} </div>
+            <div class="sc-qb1">${next_item.PassingAttempts} </div>
+            <div class="sc-qb1">${next_item.PassingCompletions} </div>
+            <div class="sc-qb1">${next_item.PassingCompletionPercentage} </div>
+            <div class="sc-qb1">${next_item.PassingYards} </div>
+            <div class="sc-qb1">${next_item.PassingYardsPerAttempt} </div>
+            <div class="sc-qb1">${next_item.PassingTouchdowns} </div>
+            <div class="sc-qb1">${next_item.PassingInterceptions} </div>
+            <div class="sc-qb1">${next_item.PassingRating} </div>
+            <div class="sc-qb1">${next_item.RushingAttempts} </div>
+            <div class="sc-qb1">${next_item.RushingYards} </div>
+            <div class="sc-qb1">${next_item.RushingYardsPerAttempt} </div>
+            <div class="sc-qb1">${next_item.RushingTouchdowns} </div>
+            <div class="sc-qb1">${next_item.Fumbles} </div>
+            <div class="sc-qb1">${next_item.FantasyPointsDraftKings} </div>
+            <div class="sc-qb1">${next_item.FantasyPointsFanDuel} </div>
+            </div>
     
             `;
             html += `
-                <br />
-            `;
-            output += html
-            const testDIV = document.querySelector('.seasonStatsOutput')
-            testDIV.innerHTML = output
-        }
-
-        if (next_item.Position == "WR") {
-
-            let html = 
-            `
-            <div>Season: ${next_item.Season} </div>
-            <div>Week: ${next_item.Week} </div></br>
-
-            <div>Receiving Targets: ${next_item.ReceivingTargets} </div>
-            <div>Receptions: ${next_item.Receptions} </div>
-            <div>Receiving Yards: ${next_item.ReceivingYards} </div>
-            <div>Receiving Yards Per Reception: ${next_item.ReceivingYardsPerReception} </div>
-            <div>Receiving Touchdowns: ${next_item.ReceivingTouchdowns} </div>
-            <div>Receiving Long: ${next_item.ReceivingLong} </div>
-            <div>Reception Percentage: ${next_item.ReceptionPercentage} </div>
-            <div>Receiving Yards Per Target: ${next_item.ReceivingYardsPerTarget} </div>
-            <div>Fumbles: ${next_item.Fumbles} </div></br>
-
-            <div>Fantasy Points PPR: ${data[0].FantasyPointsPPR} </div>
-            <div>Fantasy Points Draft Kings: ${next_item.FantasyPointsDraftKings} </div>
-            <div>Fantasy Points Fan Duel: ${next_item.FantasyPointsFanDuel} </div></br></br>
-    
-            `;
-            html += `
-                <br />
-            `;
-            output += html
-            const testDIV = document.querySelector('.seasonStatsOutput')
-            testDIV.innerHTML = output
-        }
-
-        if (next_item.Position == "RB" || next_item.Position == "TE") {
-
-            let html = 
-            `
-            <div>Season: ${next_item.Season} </div>
-            <div>Week: ${next_item.Week} </div></br>
-
-            <div>Rushing Attempts: ${next_item.RushingAttempts} </div>
-            <div>Rushing Yards: ${next_item.RushingYards} </div>
-            <div>Rushing Yards Per Attempt: ${next_item.RushingYardsPerAttempt} </div>
-            <div>Rushing Touchdowns: ${next_item.RushingTouchdowns} </div>
-            <div>Rushing Long: ${next_item.RushingLong} </div>
-            <div>Receiving Targets: ${next_item.ReceivingTargets} </div>
-            <div>Receptions: ${next_item.Receptions} </div>
-            <div>Receiving Yards: ${next_item.ReceivingYards} </div>
-            <div>Receiving Yards Per Reception: ${next_item.ReceivingYardsPerReception} </div>
-            <div>Receiving Touchdowns: ${next_item.ReceivingTouchdowns} </div>
-            <div>Receiving Long: ${next_item.ReceivingLong} </div>
-            <div>Reception Percentage: ${next_item.ReceptionPercentage} </div>
-            <div>Receiving Yards Per Target: ${next_item.ReceivingYardsPerTarget} </div>
-            <div>Fumbles: ${next_item.Fumbles} </div></br>
-
-            <div>Fantasy Points PPR: ${data[0].FantasyPointsPPR} </div>
-            <div>Fantasy Points Draft Kings: ${next_item.FantasyPointsDraftKings} </div>
-            <div>Fantasy Points Fan Duel: ${next_item.FantasyPointsFanDuel} </div></br></br>
-    
-            `;
-            html += `
-                <br />
-            `;
-            output += html
-            const testDIV = document.querySelector('.seasonStatsOutput')
-            testDIV.innerHTML = output
-        }
-
-        if (next_item.Position == "CB") {
-
-            let html = 
-            `
-            <div>Season: ${next_item.Season} </div>
-            <div>Week: ${next_item.Week} </div></br>
-
-            <div>Tackles: ${next_item.Tackles} </div>
-            <div>Solo Tackles: ${next_item.SoloTackles} </div>
-            <div>Assisted Tackles: ${next_item.AssistedTackles} </div>
-            <div>Tackles For Loss: ${next_item.TacklesForLoss} </div>
-            <div>Passes Defended: ${next_item.PassesDefended} </div>
-            <div>Fumbles Forced: ${next_item.FumblesForced} </div>
-            <div>Fumbles Recovered: ${next_item.FumblesRecovered} </div>
-            <div>Interceptions: ${next_item.PassingInterceptions} </div>
-            <div>Interception Return Yards: ${next_item.InterceptionReturnYards} </div>
-            <div>Interception Return Touchdowns: ${next_item.InterceptionReturnTouchdowns} </div>
-
-            <div>Fantasy Points PPR: ${data[0].FantasyPointsPPR} </div>
-    
-            `;
-            html += `
-                <br />
-            `;
-            output += html
-            const testDIV = document.querySelector('.seasonStatsOutput')
-            testDIV.innerHTML = output
-        }
-
-        if (next_item.Position == "S" || next_item.Position == "SS") {
-
-            let html = 
-            `
-            <div>Season: ${next_item.Season} </div>
-            <div>Week: ${next_item.Week} </div></br>
-
-            <div>Tackles: ${next_item.Tackles} </div>
-            <div>Solo Tackles: ${next_item.SoloTackles} </div>
-            <div>Assisted Tackles: ${next_item.AssistedTackles} </div>
-            <div>Tackles For Loss: ${next_item.TacklesForLoss} </div>
-            <div>Passes Defended: ${next_item.PassesDefended} </div>
-            <div>Fumbles Forced: ${next_item.FumblesForced} </div>
-            <div>Fumbles Recovered: ${next_item.FumblesRecovered} </div>
-            <div>Interceptions: ${next_item.PassingInterceptions} </div>
-            <div>Interception Return Yards: ${next_item.InterceptionReturnYards} </div>
-            <div>Interception Return Touchdowns: ${next_item.InterceptionReturnTouchdowns} </div>
-
-            <div>Fantasy Points PPR: ${data[0].FantasyPointsPPR} </div>
-    
-            `;
-            html += `
-                <br />
             `;
             output += html
             const testDIV = document.querySelector('.seasonStatsOutput')
             testDIV.innerHTML = output
         }
     }
+
+    if (next_item.Position == "WR") 
+    {
+        let html0 = 
+        `
+        <div class="playerStatsWrap">
+        
+            <div class="playerStatsHeaderContainer">
+            
+                <div class="playerStatsHeader"><div class="hc-qb1">Week</div><div class="hc-qb1">Targets</div><div class="hc-qb1">Receptions</div><div class="hc-qb1">Yards</div><div class="hc-qb1">Yards Per Reception</div><div class="hc-qb1">Touchdowns</div><div class="hc-qb1">Long</div><div class="hc-qb1">Percentage</div><div class="hc-qb1">Fumbles</div><div class="hc-qb1">Draft Kings</div><div class="hc-qb1">Fan Duel</div></div>
+
+            </div>
+
+        </div>
+        `;
+        output0 += html0
+        const testDIV0 = document.querySelector('.seasonStatsHeader')
+        testDIV0.innerHTML = output0
+        
+        for(let j=0;j<data.length;j++){
+
+            let next_item = data[j];
+
+            let html =
+            `
+            <div class = okok>
+            <div class="sc-qb1">${next_item.Week} </div>
+            <div class="sc-qb1">${next_item.ReceivingTargets} </div>
+            <div class="sc-qb1">${next_item.Receptions} </div>
+            <div class="sc-qb1">${next_item.ReceivingYards} </div>
+            <div class="sc-qb1">${next_item.ReceivingYardsPerReception} </div>
+            <div class="sc-qb1">${next_item.ReceivingTouchdowns} </div>
+            <div class="sc-qb1">${next_item.ReceivingLong} </div>
+            <div class="sc-qb1">${next_item.ReceptionPercentage} </div>
+            <div class="sc-qb1">${next_item.Fumbles} </div>
+            <div class="sc-qb1">${next_item.FantasyPointsDraftKings} </div>
+            <div class="sc-qb1">${next_item.FantasyPointsFanDuel} </div>
+            </div>
+    
+            `;
+            html += `
+            `;
+            output += html
+            const testDIV = document.querySelector('.seasonStatsOutput')
+            testDIV.innerHTML = output
+        }
+    }
+
+    if (next_item.Position == "RB" || next_item.Position == "TE") 
+    {
+        let html0 = 
+        `
+        <div class="playerStatsWrap">
+
+            <div class="playerStatsHeaderContainer2">
+                
+            <div class="playerStatsHeader"><div class="hw-qb1">Running</div><div class="hw-qb2">Receiving</div><div class="hw-qb3">Fantasy</div></div>
+
+            </div>
+        
+            <div class="playerStatsHeaderContainer">
+            
+                <div class="playerStatsHeader"><div class="hc-qb1">Week</div><div class="hc-qb1">ATT</div><div class="hc-qb1">YDS</div><div class="hc-qb1">YPA</div><div class="hc-qb1">TD</div><div class="hc-qb1">LONG</div><div class="hc-qb1">Targets</div><div class="hc-qb1">Receptions</div><div class="hc-qb1">YDS</div><div class="hc-qb1">YPR</div><div class="hc-qb1">TD</div><div class="hc-qb1">LONG</div><div class="hc-qb1">Fumbles</div><div class="hc-qb1">Draft Kings</div><div class="hc-qb1">Fan Duel</div></div>
+
+            </div>
+
+        </div>
+        `;
+        output0 += html0
+        const testDIV0 = document.querySelector('.seasonStatsHeader')
+        testDIV0.innerHTML = output0
+        
+        for(let j=0;j<data.length;j++){
+
+            let next_item = data[j];
+
+            let html =
+            `
+            <div class = okok>
+            <div class="sc-qb1">${next_item.Week} </div>
+            <div class="sc-qb1">${next_item.RushingAttempts} </div>
+            <div class="sc-qb1">${next_item.RushingYards} </div>
+            <div class="sc-qb1">${next_item.RushingYardsPerAttempt} </div>
+            <div class="sc-qb1">${next_item.RushingTouchdowns} </div>
+            <div class="sc-qb1">${next_item.RushingLong} </div>
+            <div class="sc-qb1">${next_item.ReceivingTargets} </div>
+            <div class="sc-qb1">${next_item.Receptions} </div>
+            <div class="sc-qb1">${next_item.ReceivingYards} </div>
+            <div class="sc-qb1">${next_item.ReceivingYardsPerReception} </div>
+            <div class="sc-qb1">${next_item.ReceivingTouchdowns} </div>
+            <div class="sc-qb1">${next_item.ReceivingLong} </div>
+            <div class="sc-qb1">${next_item.Fumbles} </div>
+            <div class="sc-qb1">${next_item.FantasyPointsDraftKings} </div>
+            <div class="sc-qb1">${next_item.FantasyPointsFanDuel} </div>
+            </div>
+    
+            `;
+            html += `
+            `;
+            output += html
+            const testDIV = document.querySelector('.seasonStatsOutput')
+            testDIV.innerHTML = output
+        }
+    }
+
+    if (next_item.Position == "CB") 
+    {
+        let html0 = 
+        `
+        <div class="playerStatsWrap">
+        
+            <div class="playerStatsHeaderContainer">
+            
+                <div class="playerStatsHeader"><div class="hc-qb1">Week</div><div class="hc-qb1">Tackles</div><div class="hc-qb1">Solo Tackles</div><div class="hc-qb1">Assisted Tackles</div><div class="hc-qb1">Tackles For Loss</div><div class="hc-qb1">Passes Defended</div><div class="hc-qb1">Fumbles Forced</div><div class="hc-qb1">Fumbles Recovered</div><div class="hc-qb1">INT</div><div class="hc-qb1">Return Yards</div><div class="hc-qb1">INT Return Touchdowns</div><div class="hc-qb1">Fantasy</div></div>
+
+            </div>
+
+        </div>
+        `;
+        output0 += html0
+        const testDIV0 = document.querySelector('.seasonStatsHeader')
+        testDIV0.innerHTML = output0
+        
+        for(let j=0;j<data.length;j++){
+
+            let next_item = data[j];
+
+            let html =
+            `
+            <div class = okok>
+            <div class="sc-qb1">${next_item.Week} </div>
+            <div class="sc-qb1">${next_item.Tackles} </div>
+            <div class="sc-qb1">${next_item.SoloTackles} </div>
+            <div class="sc-qb1">${next_item.AssistedTackles} </div>
+            <div class="sc-qb1">${next_item.TacklesForLoss} </div>
+            <div class="sc-qb1">${next_item.PassesDefended} </div>
+            <div class="sc-qb1">${next_item.FumblesForced} </div>
+            <div class="sc-qb1">${next_item.FumblesRecovered} </div>
+            <div class="sc-qb1">${next_item.PassingInterceptions} </div>
+            <div class="sc-qb1">${next_item.InterceptionReturnYards} </div>
+            <div class="sc-qb1">${next_item.InterceptionReturnTouchdowns} </div>
+            <div class="sc-qb1">${data[0].FantasyPointsPPR} </div>  
+            </div>
+    
+            `;
+            html += `
+            `;
+            output += html
+            const testDIV = document.querySelector('.seasonStatsOutput')
+            testDIV.innerHTML = output
+        }
+    }
+
+    if (next_item.Position == "S" || next_item.Position == "SS" || next_item.Position == "FS" || next_item.Position == "LS"|| next_item.Position == "DT")
+    {
+        let html0 = 
+        `
+        <div class="playerStatsWrap">
+        
+            <div class="playerStatsHeaderContainer">
+            
+                <div class="playerStatsHeader"><div class="hc-qb1">Week</div><div class="hc-qb1">Tackles</div><div class="hc-qb1">Solo Tackles</div><div class="hc-qb1">Assisted Tackles</div><div class="hc-qb1">Tackles For Loss</div><div class="hc-qb1">Passes Defended</div><div class="hc-qb1">Fumbles Forced</div><div class="hc-qb1">Fumbles Recovered</div><div class="hc-qb1">INT</div><div class="hc-qb1">Return Yards</div><div class="hc-qb1">INT Return Touchdowns</div><div class="hc-qb1">Fantasy</div></div>
+
+            </div>
+
+        </div>
+        `;
+        output0 += html0
+        const testDIV0 = document.querySelector('.seasonStatsHeader')
+        testDIV0.innerHTML = output0
+        
+        for(let j=0;j<data.length;j++){
+
+            let next_item = data[j];
+
+            let html =
+            `
+            <div class = okok>
+            <div class="sc-qb1">${next_item.Week} </div>
+            <div class="sc-qb1">${next_item.Tackles} </div>
+            <div class="sc-qb1">${next_item.SoloTackles} </div>
+            <div class="sc-qb1">${next_item.AssistedTackles} </div>
+            <div class="sc-qb1">${next_item.TacklesForLoss} </div>
+            <div class="sc-qb1">${next_item.PassesDefended} </div>
+            <div class="sc-qb1">${next_item.FumblesForced} </div>
+            <div class="sc-qb1">${next_item.FumblesRecovered} </div>
+            <div class="sc-qb1">${next_item.PassingInterceptions} </div>
+            <div class="sc-qb1">${next_item.InterceptionReturnYards} </div>
+            <div class="sc-qb1">${next_item.InterceptionReturnTouchdowns} </div>
+            <div class="sc-qb1">${data[0].FantasyPointsPPR} </div>  
+            </div>
+    
+            `;
+            html += `
+            `;
+            output += html
+            const testDIV = document.querySelector('.seasonStatsOutput')
+            testDIV.innerHTML = output
+        }
+    }
+
+    if (next_item.Position == "OLB" || next_item.Position == "ILB" || next_item.Position == "LB" || next_item.Position == "FB"|| next_item.Position == "OT"|| next_item.Position == "NT"|| next_item.Position == "DE"|| next_item.Position == "G")
+    {
+        let html0 = 
+        `
+        <div class="playerStatsWrap">
+        
+            <div class="playerStatsHeaderContainer">
+            
+                <div class="playerStatsHeader"><div class="hc-qb1">Week</div><div class="hc-qb1">Tackles</div><div class="hc-qb1">Solo Tackles</div><div class="hc-qb1">Assisted Tackles</div><div class="hc-qb1">Tackles For Loss</div><div class="hc-qb1">Passes Defended</div><div class="hc-qb1">Fumbles Forced</div><div class="hc-qb1">Fumbles Recovered</div><div class="hc-qb1">INT</div><div class="hc-qb1">Return Yards</div><div class="hc-qb1">INT Return Touchdowns</div><div class="hc-qb1">Fantasy</div></div>
+
+            </div>
+
+        </div>
+        `;
+        output0 += html0
+        const testDIV0 = document.querySelector('.seasonStatsHeader')
+        testDIV0.innerHTML = output0
+        
+        for(let j=0;j<data.length;j++){
+
+            let next_item = data[j];
+
+            let html =
+            `
+            <div class = okok>
+            <div class="sc-qb1">${next_item.Week} </div>
+            <div class="sc-qb1">${next_item.Tackles} </div>
+            <div class="sc-qb1">${next_item.SoloTackles} </div>
+            <div class="sc-qb1">${next_item.AssistedTackles} </div>
+            <div class="sc-qb1">${next_item.TacklesForLoss} </div>
+            <div class="sc-qb1">${next_item.PassesDefended} </div>
+            <div class="sc-qb1">${next_item.FumblesForced} </div>
+            <div class="sc-qb1">${next_item.FumblesRecovered} </div>
+            <div class="sc-qb1">${next_item.PassingInterceptions} </div>
+            <div class="sc-qb1">${next_item.InterceptionReturnYards} </div>
+            <div class="sc-qb1">${next_item.InterceptionReturnTouchdowns} </div>
+            <div class="sc-qb1">${data[0].FantasyPointsPPR} </div>  
+            </div>
+    
+            `;
+            html += `
+            `;
+            output += html
+            const testDIV = document.querySelector('.seasonStatsOutput')
+            testDIV.innerHTML = output
+        }
+    }
+
+    if (next_item.Position == "K") 
+    {
+        let html0 = 
+        `
+        <div class="playerStatsWrap">
+
+            <div class="playerStatsHeaderContainer">
+            
+                <div class="playerStatsHeader"><div class="hc-qb1">Week</div><div class="hc-qb1">Field Goal ATT</div><div class="hc-qb1">Field Goals</div><div class="hc-qb1">LONG</div><div class="hc-qb1">Extra Points ATT</div><div class="hc-qb1">Extra Points</div><div class="hc-qb1">Draft Kings</div><div class="hc-qb1">Fan Duel</div></div>
+
+            </div>
+
+        </div>
+        `;
+        output0 += html0
+        const testDIV0 = document.querySelector('.seasonStatsHeader')
+        testDIV0.innerHTML = output0
+        
+        for(let j=0;j<data.length;j++){
+
+            let next_item = data[j];
+
+            let html =
+            `
+            <div class = okok>
+            <div class="sc-qb1">${next_item.Week} </div>
+            <div class="sc-qb1">${next_item.FieldGoalsAttempted} </div>
+            <div class="sc-qb1">${next_item.FieldGoalsMade} </div>
+            <div class="sc-qb1">${next_item.FieldGoalsLongestMade} </div>
+            <div class="sc-qb1">${next_item.ExtraPointsAttempted} </div>
+            <div class="sc-qb1">${next_item.ExtraPointsMade} </div>
+            <div class="sc-qb1">${next_item.FantasyPointsDraftKings} </div>
+            <div class="sc-qb1">${next_item.FantasyPointsFanDuel} </div>
+            </div>
+    
+            `;
+            html += `
+            `;
+            output += html
+            const testDIV = document.querySelector('.seasonStatsOutput')
+            testDIV.innerHTML = output
+        }
+    }
+
+    if (next_item.Position == "P") 
+    {
+        let html0 = 
+        `
+        <div class="playerStatsWrap">
+
+            <div class="playerStatsHeaderContainer">
+            
+                <div class="playerStatsHeader"><div class="hc-qb1">Week</div><div class="hc-qb1">Punts</div><div class="hc-qb1">Punt YDS</div><div class="hc-qb1">Punt AVG</div><div class="hc-qb1">Punt LONG</div><div class="hc-qb1">Punt Inside 20</div><div class="hc-qb1">Punt Touchbacks</div></div>
+
+            </div>
+
+        </div>
+        `;
+        output0 += html0
+        const testDIV0 = document.querySelector('.seasonStatsHeader')
+        testDIV0.innerHTML = output0
+        
+        for(let j=0;j<data.length;j++){
+
+            let next_item = data[j];
+
+            let html =
+            `
+            <div class = okok>
+            <div class="sc-qb1">${next_item.Week} </div>
+            <div class="sc-qb1">${next_item.Punts} </div>
+            <div class="sc-qb1">${next_item.PuntYards} </div>
+            <div class="sc-qb1">${next_item.PuntAverage} </div>
+            <div class="sc-qb1">${next_item.PuntLong} </div>
+            <div class="sc-qb1">${next_item.PuntTouchbacks} </div>
+            <div class="sc-qb1">${next_item.PuntInside20} </div>
+            </div>
+    
+            `;
+            html += `
+            `;
+            output += html
+            const testDIV = document.querySelector('.seasonStatsOutput')
+            testDIV.innerHTML = output
+        }
+    }
+
 }
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

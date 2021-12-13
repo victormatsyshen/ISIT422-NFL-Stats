@@ -83,7 +83,7 @@ function ApiSceduleData(ScheduleYear, ScheduleWeek, queryField)
                 //output += html
                 // const testDIV = document.querySelector('.' + queryField +'')
                 // testDIV.innerHTML = output
-                console.log(html);
+                //console.log(html);
 
                 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                 // API Url Setup (team data)

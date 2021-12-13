@@ -244,7 +244,7 @@ const generateHtml_TeamPlayers = (data) =>
                 let html = 
                 `
                 <button type="button" id="${next_item.PlayerID}" class="playerButton" onClick="testFunction2(this.id)"> <img src=${next_item.PhotoUrl} class="playerImage"> <div class="pNumber">#${next_item.Number}</div>  <div class="pName">${next_item.Name}</div>  <div class="pPosition">${next_item.Position}</div>  <div class="pExp">${next_item.ExperienceString}</div>  <div class="pAge">${next_item.Age}</div>  <div class="pHeight">${next_item.Height}</div>  <div class="pWeight">${next_item.Weight}</div>  <div class="pStatus">${next_item.Status}</div></button>
-                <button type="button" id="${next_item.PlayerID}" class="injuryButton" onClick="testFunction2(this.id)"> <div class="InjuryStat">Declared Inactive</div><div class="IL">Injury Location: Scrambled.</div><div class="IS">Injury Status: Scrambled.</div></button>
+                <button type="button" id="${next_item.PlayerID}" class="injuryButton" onClick="testFunction2(this.id)"> <div class="InjuryStat">Active Injury</div><div class="IL">Injury Location: Scrambled.</div><div class="IS">Injury Status: Scrambled.</div><div class="IS">Roster Status: ${next_item.Status}</div></button>
                 `;
                 html += `
                     
@@ -268,74 +268,13 @@ const generateHtml_TeamPlayers = (data) =>
                 testDIV.innerHTML = output
             }
 
-
+            
                 
         }
-
-
-        // let html = 
-        // `
-        //     <button type="button" id="${next_item.PlayerID}" onClick="testFunction2(this.id)"> #${next_item.Number} <img src=${next_item.PhotoUrl}> ${next_item.Name} ${next_item.Position} ${next_item.Age} ${next_item.Height} ${next_item.Weight}</button>
-        // `;
-        // html += `
-        //     <br />
-        // `;
-        // output += html
-        // const testDIV = document.querySelector('.playerOutput')
-        // testDIV.innerHTML = output
     }
 }
 
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// API Url Setup (Injury Report)
-// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// // Url Setup - runs automatically
-// let apiData_TeamInjuryData = 
-// {   
-//     url_TeamInjuryData: 'https://api.sportsdata.io/v3/nfl/',
-//     field_TeamInjuryData: 'stats/json/Injuries/2021/10/',
-//     input_TeamInjuryData: teamKey,
-//     key_TeamInjuryData: keyID
-// }
-
-// // Url JSON string
-// let {url_TeamInjuryData,field_TeamInjuryData,input_TeamInjuryData,key_TeamInjuryData} = apiData_TeamInjuryData
-// let apiUrl_TeamInjuryData = `${url_TeamInjuryData}${field_TeamInjuryData}${input_TeamInjuryData}?${key_TeamInjuryData}`
-// //console.log("Team Injuries "+apiUrl_TeamInjuryData);
-
-// //Url Fetch
-// fetch(apiUrl_TeamInjuryData) 
-// .then( (data) => 
-// {
-//     return data.json()
-// })
-// .then((nflStats2) => generateHtml_TeamInjuryData(nflStats2))
-
-// // Html display for loop retrieves information from (data) which is the API fetch output.
-// const generateHtml_TeamInjuryData = (data) => 
-// {
-//     // Original Html output is empty. We will compound buttons and html as the for loop progresses. 
-//     let output = "";
-
-//     // Collect the total amount of data elements and repeat for each result
-//     for(let i=0;i<data.length;i++)
-//     {
-//         let next_item = data[i];
-
-//         let html = 
-//             `
-//                 <button type="button" id="${next_item.PlayerID}" onClick="testFunction2(this.id)"> #${next_item.Number} ${next_item.Name} ${next_item.Position} Declared Inactive: ${next_item.DeclaredInactive} Body Part: ${next_item.BodyPart} Status: ${next_item.Status}</button>
-//             `;
-//             html += `
-//                 <br />
-//             `;
-//             output += html
-//             const testDIV = document.querySelector('.injuryOutput')
-//             testDIV.innerHTML = output
-        
-//     }
-// }
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // API Url Setup (team news)
