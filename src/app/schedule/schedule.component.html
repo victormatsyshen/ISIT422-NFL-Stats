@@ -1,0 +1,56 @@
+<body class="schedulePage">
+
+    <!-- Global Title -->
+    <div class="titleDiv">
+        NFL Fantasy Data
+    </div>
+
+    <!-- Global Nav Bar -->
+    <div class="navBarDiv">
+        <button class="navBarButton" onclick="window.location.href='/home'">Home</button>
+        <button class="navBarButton" onclick="window.location.href='/schedule'">Schedule</button>
+        <button class="navBarButton" onclick="window.location.href='/highest'">Mongo</button>
+        <button class="navBarButton" onclick="window.location.href='/stream'">Stream</button>
+        
+    </div>
+
+    <div class="centerDiv">
+
+        <div class="contentDiv">
+
+            <div class="scheduleSearch">
+                <div>Search For NFL Schedule by Week and Year</div>
+                <input type="search" id="scheduleSearchWeek" value="1">
+                <input type="search" id="scheduleSearchYear" value="2021">
+                <button id="scheduleSearchButton" onclick="ApiSceduleData(document.getElementById('scheduleSearchYear').value,document.getElementById('scheduleSearchWeek').value,'scheduleOutput');">Search</button>
+            </div>
+
+            <!-- JavaScript Output -->
+            <div class="teamLookOutput3"></div>
+    
+            <div class="scheduleContent">
+    
+                <!-- JavaScript Output -->
+                <!-- <div class="scheduleOutput"></div> -->
+    
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Global Footer -->
+    <div class="footerDiv">
+        Created by Victor Matsyshen and Dylan York<br> 
+        &copy; All Rights Reserved 2021
+    </div>
+
+    <!-- JavaScript -->
+    <script src="schedulepage.js"></script>
+
+</body>
+
+
+
+
+
